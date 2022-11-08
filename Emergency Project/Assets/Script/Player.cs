@@ -25,16 +25,14 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<InstaDeath>() != null)
-        SceneManager.LoadScene("Level1");
-        Destroy(gameObject);
+        SceneManager.LoadScene("GameOverScene");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.GetComponent<EnemyScript>() != null)
         {
-            SceneManager.LoadScene("Level1");
-            Destroy(gameObject);
+            SceneManager.LoadScene("GameOverScene");
         }
     }
     void Start()
