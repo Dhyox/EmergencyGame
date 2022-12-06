@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     float MoveSpd;
     bool FaceRight;
     bool Jumping = false;
+    private AudioSource JumpSound;
 
     Animator anim;
 
@@ -25,7 +26,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<InstaDeath>() != null)
+        if (other.gameObject.GetComponent<Mati>() != null)
         SceneManager.LoadScene("GameOverScene");
     }
 
@@ -141,7 +142,8 @@ public class Player : MonoBehaviour
     {
         if(Jumping)
         {
-            
+            JumpSound = GetComponent<AudioSource>();
+            JumpSound.Play();
             Jumping = false;
             float JumpVelocity = 10;
             rb.velocity = Vector2.up * JumpVelocity;
