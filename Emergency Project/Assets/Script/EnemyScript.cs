@@ -16,8 +16,9 @@ public class EnemyScript : MonoBehaviour
     bool FaceRight;
     private float TravelDistance;
     private float MaxTravelDistance;
+    private float HP;
     private int Direction;
-    [SerializeField] float HP, MaxHP = 5f;
+    [SerializeField] float MaxHP = 5f;
 
     
 

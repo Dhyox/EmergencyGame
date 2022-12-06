@@ -8,10 +8,11 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-
-
-
     [SerializeField] private LayerMask WorldLayerMask;
+    public static int HP;
+    public static int Ammo;
+    private int MaxAmmo;
+    private bool pauseToggle;
     private Rigidbody2D rb;
     private CapsuleCollider2D cc;
     float MoveSpd;
@@ -32,17 +33,20 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.GetComponent<EnemyScript>() != null)
         {
-            SceneManager.LoadScene("GameOverScene");
+            HP -= 1;
+            //SceneManager.LoadScene("GameOverScene");
         }
     }
     void Start()
     {
+        HP = 3;
+        Ammo = 10;
+        MaxAmmo = Ammo;
         MoveSpd = 5;
         anim = GetComponent<Animator>();
         rb = transform.GetComponent<Rigidbody2D>();
         cc = transform.GetComponent<CapsuleCollider2D>();
-        
-
+        pauseToggle = false;
     }
 
     
@@ -50,11 +54,28 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (HP <= 0)
+        {
+            SceneManager.LoadScene("GameOverScene");
+        }
+
+        if (Ammo == 0)
+        {
+            Ammo = MaxAmmo;
+        }
         
         if (IsGrounded())UpdatePosition();
-        
-            
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (pauseToggle)
+                Time.timeScale = 1;
+            else
+                Time.timeScale = 0;
+
+            pauseToggle = !pauseToggle;
+        }
+
 
 
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))

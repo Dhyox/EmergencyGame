@@ -142,7 +142,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  HP: 0
   MaxHP: 5
 --- !u!60 &6069921850072087653
 PolygonCollider2D:
