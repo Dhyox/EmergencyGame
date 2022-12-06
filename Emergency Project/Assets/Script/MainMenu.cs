@@ -3,21 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class MainMenu : MonoBehaviour
 {
+    public void Start()
+    {
+        Time.timeScale = 1;
+        AudioListener.pause = false;
+    }
     public void ExitButton()
     {
         Application.Quit();
-        Debug.Log("Game closed");
+        Debug.Log("Game Closed");
     }
 
     public void StartGame()
     {
         SceneManager.LoadScene("Level1");
-    }
-
-    public void Controls()
-    {
-        SceneManager.LoadScene("Controls");
     }
 }

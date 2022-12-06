@@ -12,13 +12,15 @@ public class Player : MonoBehaviour
     public static int HP;
     public static int Ammo;
     private int MaxAmmo;
-    private bool pauseToggle;
+    public static bool pauseToggle;
     private Rigidbody2D rb;
     private CapsuleCollider2D cc;
     float MoveSpd;
     bool FaceRight;
     bool Jumping = false;
     private AudioSource JumpSound;
+
+
 
     Animator anim;
 
@@ -40,6 +42,8 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
+        Time.timeScale = 1;
+        AudioListener.pause = false;
         HP = 3;
         Ammo = 10;
         MaxAmmo = Ammo;
@@ -49,8 +53,16 @@ public class Player : MonoBehaviour
         cc = transform.GetComponent<CapsuleCollider2D>();
         pauseToggle = false;
     }
-
-    
+    void PauseGame()
+    {
+        Time.timeScale = 0f;
+        AudioListener.pause = true;
+    }
+    void ResumeGame()
+    {
+        Time.timeScale = 1;
+        AudioListener.pause = false;
+    }
 
     // Update is called once per frame
     void Update()
@@ -70,9 +82,14 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (pauseToggle)
-                Time.timeScale = 1;
+            {
+                ResumeGame();
+            }
             else
-                Time.timeScale = 0;
+            {
+                PauseGame();
+            }
+                
 
             pauseToggle = !pauseToggle;
         }

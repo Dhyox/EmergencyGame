@@ -12,10 +12,21 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!Player.pauseToggle)
         {
-            Shoot();
-            Player.Ammo -= 1;
+            if (Input.GetMouseButtonDown(0))
+            {
+                Shoot();
+                Player.Ammo -= 1;
+            }
+            else
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    Shoot();
+                    Player.Ammo -= 1;
+                }
+            }
         }
     }
 
@@ -24,4 +35,4 @@ public class Weapon : MonoBehaviour
         Instantiate(BulletPref, FirePoint.position, FirePoint.rotation);
     }
 
-}    
+}
