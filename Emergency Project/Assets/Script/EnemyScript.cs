@@ -57,25 +57,7 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameObject)
-        {
-            
-        }
         
-        /*
-        if (TravelDistance > 200f)
-            {
-                MoveRight();
-                if (TravelDistance == 400)
-                {
-                    TravelDistance = 0;
-                }
-            }
-            else if (TravelDistance <= 200f)
-            {
-                MoveLeft();
-            }
-        */
     }
 
 

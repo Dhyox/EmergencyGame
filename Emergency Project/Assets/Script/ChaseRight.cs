@@ -10,12 +10,20 @@ public class ChaseRight : MonoBehaviour
     public Rigidbody2D rb;
     public bool Move = false;
     public Transform EnemyAlien;
+    public bool test = false;
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<Player>() != null)
         {
-            Destroy(gameObject.GetComponent<Rigidbody2D>());
+            Move = true;
+            
+        }
+
+        if (collision.gameObject.GetComponent<Player>() != null)
+        {
+            
+            test = true;
         }
 
     }
@@ -25,32 +33,55 @@ public class ChaseRight : MonoBehaviour
         if (collision.gameObject.GetComponent<Player>() != null)
         {
             Move = false;
+            
+        }
+        if (collision.gameObject.GetComponent<Player>() != null)
+        {
+            
+            test = false;
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
+        
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        MoveRight();
 
+        
+        MoveRight();
+        if (Move == false && test == true)
+        {
+            Move = false;
+            Move = true;
+            Debug.Log("1 false");
+        }
+        else if (test == false && Move == true)
+        {
+            test = false;
+            test = true;
+            Debug.Log("1 false");
+        }
+        else if (test == false && Move == false)
+        {
+            Debug.Log("The f");
+        }
         
     }
 
     public void MoveRight()
     {
-        if (Move == true)
+        if (Move == true && test == true)
         {
-            transform.Rotate(0f, 180f, 0f);
             rb.velocity = new Vector2(+MoveSpd, rb.velocity.y);
-
+            Debug.Log("All clear");
         }
-        anim.SetFloat("WalkHorizontal", 1);
+        
     }
 
 }
