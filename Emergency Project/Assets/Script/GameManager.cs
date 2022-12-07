@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static int EnemyCounter;
+    public static int Score;
+
     public Canvas PauseMenu;
     bool a;
 
     public Canvas DmgScrn;
     bool b = false;
 
-    int LastHP = Player.HP;
+    int LastHP = 3;
 
     public void PopUp()
     {
@@ -31,6 +33,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        LastHP = Player.HP;
+        Score = 0;
         a = false;
         Time.timeScale = 1;
         AudioListener.pause = false;
@@ -71,7 +75,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape)||Input.GetKeyDown(KeyCode.P))
         {
             PopUpSetting();
         }
@@ -79,7 +83,14 @@ public class GameManager : MonoBehaviour
         if (Player.HP != LastHP)
         {
             StartCoroutine(BloodPop());
+            GameManager.Score -= 50;
             LastHP = Player.HP;
         }
+
+        if (EnemyCounter == 0)
+        {
+            SceneManager.LoadScene("Win");
+        }
+
     }
 }

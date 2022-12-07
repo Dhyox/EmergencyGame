@@ -31,6 +31,8 @@ public class EnemyScript : MonoBehaviour
             MaxHP -= 1;
             if (MaxHP == 0)
             {
+                GameManager.Score += 100;
+                GameManager.EnemyCounter -= 1;
                 Destroy(gameObject);
             }
         }
@@ -49,7 +51,7 @@ public class EnemyScript : MonoBehaviour
         rb = transform.GetComponent<Rigidbody2D>();
         pc = transform.GetComponent<PolygonCollider2D>();
         bc = transform.GetComponent<BoxCollider2D>();
-        
+        GameManager.EnemyCounter += 1;
     }
 
     // Update is called once per frame

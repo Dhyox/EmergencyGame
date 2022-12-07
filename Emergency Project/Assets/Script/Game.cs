@@ -6,6 +6,8 @@ public class Game : MonoBehaviour
 {
     public Text HP;
     public Text Ammo;
+    public Text Enemy;
+    public Text Score;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,5 +19,7 @@ public class Game : MonoBehaviour
     {
         HP.text = "HP: " + Player.HP;
         Ammo.text = "Ammo: " + Player.Ammo;
+        Enemy.text = "Enemy Left: " + GameManager.EnemyCounter;
+        Score.text = "" + GameManager.Score;
     }
 }

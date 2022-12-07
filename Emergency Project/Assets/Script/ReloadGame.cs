@@ -17,7 +17,7 @@ public class ReloadGame : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene("Level1");
+            //SceneManager.LoadScene("Level1");
         }
     }
 }

@@ -74,12 +74,13 @@ public class Player : MonoBehaviour
 
         if (Ammo == 0)
         {
+            GameManager.Score -= 10;
             Ammo = MaxAmmo;
         }
         
         if (IsGrounded())UpdatePosition();
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
             if (pauseToggle)
             {
