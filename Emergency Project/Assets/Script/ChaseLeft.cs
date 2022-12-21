@@ -6,7 +6,7 @@ public class ChaseLeft : MonoBehaviour
 {
     Animator anim;
     float MoveSpd = 3f;
-    public BoxCollider2D bc;
+    private BoxCollider2D bc;
     public Rigidbody2D rb;
     public bool Move = false;
     public Transform EnemyAlien;

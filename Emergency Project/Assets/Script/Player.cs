@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     bool FaceRight;
     bool Jumping = false;
     private AudioSource JumpSound;
+    private AudioSource BulletSound;
 
 
 

@@ -242,7 +242,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6974962908337637593}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6026707768996063631}
@@ -286,7 +286,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 794cf6fee0f005545bf05823bdb7e74e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bc: {fileID: 9018727142801094895}
   rb: {fileID: 6026707768996063630}
   Move: 0
   EnemyAlien: {fileID: 6026707768996063631}
@@ -337,7 +336,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8294091242718362086}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6026707768996063631}
@@ -400,7 +399,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe295115a0909eb4e8e8df4eee44a75c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bc: {fileID: 2966231708291530058}
   rb: {fileID: 6026707768996063630}
   Move: 0
   EnemyAlien: {fileID: 6026707768996063631}

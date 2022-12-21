@@ -5,9 +5,9 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
 
-    
 
-    
+
+
     float MoveSpd;
     Animator anim;
     public Rigidbody2D rb;
@@ -20,12 +20,8 @@ public class EnemyScript : MonoBehaviour
     private int Direction;
     [SerializeField] float MaxHP = 5f;
 
-    
-
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (collision.gameObject.GetComponent<Bullet>() != null)
         {
             MaxHP -= 1;
@@ -38,53 +34,26 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
+
+
+        // Start is called before the first frame update
+        void Start()
+        {
+            HP = MaxHP;
+            MoveSpd = 3;
+            TravelDistance = 0;
+            anim = GetComponent<Animator>();
+            rb = transform.GetComponent<Rigidbody2D>();
+            pc = transform.GetComponent<PolygonCollider2D>();
+            bc = transform.GetComponent<BoxCollider2D>();
+            GameManager.EnemyCounter += 1;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+
     
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        HP = MaxHP;
-        MoveSpd = 3;
-        TravelDistance = 0;
-        anim = GetComponent<Animator>();
-        rb = transform.GetComponent<Rigidbody2D>();
-        pc = transform.GetComponent<PolygonCollider2D>();
-        bc = transform.GetComponent<BoxCollider2D>();
-        GameManager.EnemyCounter += 1;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
-       
-
-    private void MoveLeft()
-    {
-        rb.velocity = new Vector2(-MoveSpd, rb.velocity.y);
-        if (FaceRight == true)
-        {
-            FaceRight = false;
-            transform.Rotate(0f, 180f, 0f);
-        }
-        anim.SetFloat("WalkHorizontal", -1);
-        TravelDistance++;
-    }
-
-    private void MoveRight()
-    {
-        rb.velocity = new Vector2(+MoveSpd, rb.velocity.y);
-        if (FaceRight == false)
-        {
-            FaceRight = true;
-            transform.Rotate(0f, -180f, 0f);
-        }
-        anim.SetFloat("WalkHorizontal", 1);
-        TravelDistance++;
-    }
-
 }
