@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
         Time.timeScale = 1;
         AudioListener.pause = false;
         HP = 3;
+        GameManager.LastHP = HP;
         Ammo = 10;
         MaxAmmo = Ammo;
         MoveSpd = 5;

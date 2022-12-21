@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
 {
     public void Start()
     {
+        GameManager.LastHP = Player.HP;
         GameManager.Score = 0;
         GameManager.EnemyCounter = 0;
         Time.timeScale = 1;

@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public Canvas DmgScrn;
     bool b = false;
 
-    int LastHP = 3;
+    public static int LastHP = 3;
 
     public void PopUp()
     {

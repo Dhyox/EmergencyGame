@@ -206,9 +206,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 38843821311294829, guid: 892c804930217c142ae3a486f24d3b4d, type: 3}
-        m_TargetAssemblyTypeName: ControlMenu, Assembly-CSharp
-        m_MethodName: Back
+      - m_Target: {fileID: 861711600}
+        m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
+        m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -469,7 +469,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 861711595}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22a43b581e72b794d9259d85798c467f, type: 3}
+  m_Script: {fileID: 11500000, guid: 00f9d72aca25bd04c9e341c430976763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1733009147
